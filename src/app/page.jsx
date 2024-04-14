@@ -3,8 +3,8 @@ import { BlogPostsResponse } from "@/models/BlogPost";
 import Link from "next/link";
 
 export default async function BlogPage() {
-  const response = await fetch("https://dummyjson.com/posts");
-  const { posts }: BlogPostsResponse = await response.json();
+  const response = await fetch("https://jsonserver1-yblk.onrender.com/posts");
+  const  posts = await response.json();
 
   await delay(1000);
 
@@ -14,7 +14,7 @@ export default async function BlogPage() {
       {posts.map(({ id, title }) => (
         <article key={title}>
           <h2>
-            <Link href={`/posts/${id}`} className="text-lg font-bold">
+            <Link href='#' className="text-lg font-bold">
               {title}
             </Link>
           </h2>
